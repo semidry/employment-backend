@@ -3,8 +3,8 @@ FROM openjdk:17
 WORKDIR /app
 COPY . /app
 
-RUN chmod +x gradlew
-RUN ./gradlew clean build
-RUN cp $(ls build/libs/*.jar | grep -v "plain") app.jar
+RUN chmod +x mvnw
+RUN ./mvnw clean package
+RUN cp target/*.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
