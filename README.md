@@ -1,19 +1,11 @@
 # 卓越项目后端
 
-## 构建
+## 构建和部署
 
-### SpringBoot
-
-对于Linux系统, 在终端执行:
+确保服务器已经安装`docker compose`, 执行:
 
 ```sh
-./gradlew build
+docker compose up
 ```
-这会在`build/libs`下生成两个`jar`包, 不带有`plain`的是直接可以部署的`jar`包.
 
-运行`jar`包:
-
-```sh
-java -jar [jar-name].jar
-```
-注意, 项目使用的jdk版本是17, 确保你的jdk版本是17及以上.
+进行自动化构建和部署, 服务器应当开放`8080`端口.
