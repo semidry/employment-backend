@@ -9,9 +9,11 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-@Document(collation = "provinces")
+@Document(collation = "province")
 public class Province {
     @Id private String userId;
     private List<String> dataAwaitingReview;
+    private List<String> cities;
+    private List<String> releasedNotices;
     private Integer timeLimit;
 }

@@ -10,6 +10,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collation = "reported_data")
 public class ReportedData {
     @Id private String reportedDataId;
-    private String enterpriseId;
-    private Boolean isApproved;
+    private String enterpriseUserId;
+    private Integer employedNumDuringFilingPeriod;
+    private Integer employedNumDuringSurveyPeriod;
+    private String otherReasons;
+    private String reducedType;
+    private String mainReason;
+    private String mainReasonDescription;
+    private String secondaryReason;
+    private String secondaryReasonDescription;
+    private String thirdReason;
+    private String thirdReasonDescription;
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-@Document(collation = "enterprises")
+@Document(collation = "enterprise")
 public class Enterprise {
     @Id private String userId;
     private String locatedCity;

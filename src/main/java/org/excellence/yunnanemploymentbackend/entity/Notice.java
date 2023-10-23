@@ -5,13 +5,11 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
-@Document(collation = "city")
-public class City {
-    @Id private String userId;
-    private List<String> dataAwaitingReview;
-    private List<String> enterprises;
+@Document(collation = "notice")
+public class Notice {
+    @Id private String noticeId;
+    private String content; // 通知内容
+    private String date; // 发布日期
 }

@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @AllArgsConstructor
-@Document(collation = "users")
+@Document(collation = "user")
 public class User {
     @Id private String userId;
     private String password;
