@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-@Document(collation = "cities")
+@Document(collation = "city")
 public class City {
     @Id private String userId;
     private List<String> dataAwaitingReview;
