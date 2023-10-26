@@ -1,15 +1,18 @@
 package org.excellence.yunnanemploymentbackend.entity;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@Document(collation = "reported_data")
+@NoArgsConstructor
+@Entity
 public class ReportedData {
-    @Id private String reportedDataId;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer reportedDataId;
     private String enterpriseUserId;
     private Integer employedNumDuringFilingPeriod;
     private Integer employedNumDuringSurveyPeriod;

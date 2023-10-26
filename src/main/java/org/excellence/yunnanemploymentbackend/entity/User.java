@@ -1,15 +1,16 @@
 package org.excellence.yunnanemploymentbackend.entity;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@Document(collation = "user")
+@NoArgsConstructor
+@Entity
 public class User {
     @Id private String userId;
     private String password;
     private Integer userType;
+
 }
