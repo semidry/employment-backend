@@ -1,17 +1,18 @@
 package org.excellence.yunnanemploymentbackend.entity;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-@Document(collation = "city")
+@NoArgsConstructor
+@Entity
 public class City {
     @Id private String userId;
-    private List<String> dataAwaitingReview;
-    private List<String> enterprises;
+    @ElementCollection private List<String> dataAwaitingReview;
+    @ElementCollection private List<String> enterprises;
 }

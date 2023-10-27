@@ -1,8 +1,8 @@
 package org.excellence.yunnanemploymentbackend.repository;
 
 import org.excellence.yunnanemploymentbackend.entity.ReportedData;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface ReportedDataRepository extends MongoRepository<ReportedData, String> {
+public interface ReportedDataRepository extends CrudRepository<ReportedData, Integer> {
     
 }

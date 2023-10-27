@@ -1,8 +1,8 @@
 package org.excellence.yunnanemploymentbackend.repository;
 
 import org.excellence.yunnanemploymentbackend.entity.Province;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface ProvinceRepository extends MongoRepository<Province, String> {
+public interface ProvinceRepository extends CrudRepository<Province, String> {
     
 }

@@ -1,15 +1,18 @@
 package org.excellence.yunnanemploymentbackend.entity;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@Document(collation = "notice")
+@NoArgsConstructor
+@Entity
 public class Notice {
-    @Id private String noticeId;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer noticeId;
     private String content; // 通知内容
     private String date; // 发布日期
 }
