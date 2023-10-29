@@ -19,7 +19,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public String login(@NotNull User user) {
+    public String login(User user) {
         final StringBuilder result = new StringBuilder();
         userRepository.findById(user.getUserId()).ifPresentOrElse(trueUser -> {
             if (trueUser.getPassword().equals(user.getPassword())) {
@@ -32,7 +32,7 @@ public class UserService {
         return result.toString();
     }
 
-    public String register(@NotNull User user) {
+    public String register(User user) {
         final StringBuilder result = new StringBuilder();
         userRepository.findById(user.getUserId()).ifPresentOrElse(_ -> result.append("userId has already existed"), () -> {
             userRepository.save(user);
