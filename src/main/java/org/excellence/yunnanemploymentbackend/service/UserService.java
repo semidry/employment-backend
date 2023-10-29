@@ -12,12 +12,8 @@ import java.util.function.Supplier;
 
 @Service
 public class UserService {
-    private final UserRepository userRepository;
-
     @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private UserRepository userRepository;
 
     public String login(User user) {
         final StringBuilder result = new StringBuilder();
@@ -34,7 +30,7 @@ public class UserService {
 
     public String register(User user) {
         final StringBuilder result = new StringBuilder();
-        userRepository.findById(user.getUserId()).ifPresentOrElse(_ -> result.append("userId has already existed"), () -> {
+        userRepository.findById(user.getUserId()).ifPresentOrElse(user1 -> result.append("userId has already existed"), () -> {
             userRepository.save(user);
             result.append("success");
         });

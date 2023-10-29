@@ -9,12 +9,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path = "user")
 public class UserController {
-    private final UserService userService;
-
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    private UserService userService;
 
     @PostMapping(path = "/login")
     public @ResponseBody Response<Boolean> login(@RequestBody User user) {
