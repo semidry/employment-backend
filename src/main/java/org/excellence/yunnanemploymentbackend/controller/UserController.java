@@ -12,7 +12,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(path = "/login")
+    @PostMapping(path = "login")
     public @ResponseBody Response<Boolean> login(@RequestBody User user) {
         final var result = userService.login(user);
         if (!result.equals("success")) {
