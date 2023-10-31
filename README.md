@@ -1,5 +1,23 @@
 # 卓越项目后端
 
+## 在本地使用Windows开发
+
+确保`Windows`系统下已经安装了`Docker Desktop`和`JDK 21`.
+
+打开`Windows`的`Terminal(Power Shell)``, 运行
+
+```sh
+./mvnw.cmd clean package
+```
+
+这会生成一个`target`文件夹, 并将构建好的`jar`包放在`target`目录下.
+
+使用`docker`部署项目, 运行:
+
+```sh
+docker compose up -f docker-compose-dev.yml
+```
+
 ## 构建和部署
 
 确保服务器已经安装`docker compose`, 执行:
