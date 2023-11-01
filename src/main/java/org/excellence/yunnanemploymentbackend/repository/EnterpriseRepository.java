@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface EnterpriseRepository extends CrudRepository<Enterprise, String> {
     List<Enterprise> findEnterprisesByIsRegisteredIsTrue();
+
+    List<Enterprise> findEnterprisesByIsRegisteredIsTrueAndLocatedCityIs(String locatedCity);
 }
