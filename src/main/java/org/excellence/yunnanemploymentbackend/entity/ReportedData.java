@@ -14,6 +14,7 @@ public class ReportedData {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer reportedDataId;
     private String enterpriseUserId;
+    private Boolean isApproved;
     private Integer employedNumDuringFilingPeriod;
     private Integer employedNumDuringSurveyPeriod;
     private String otherReasons;

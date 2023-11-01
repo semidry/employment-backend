@@ -13,6 +13,6 @@ import java.util.List;
 @Entity
 public class City {
     @Id private String userId;
-    @ElementCollection private List<String> dataAwaitingReview;
+    @ElementCollection private List<Integer> dataAwaitingReview;
     @ElementCollection private List<String> enterprises;
 }
