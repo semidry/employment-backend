@@ -2,6 +2,7 @@ package org.excellence.yunnanemploymentbackend.service;
 
 import org.excellence.yunnanemploymentbackend.entity.EnterpriseInfo;
 import org.excellence.yunnanemploymentbackend.entity.Notice;
+import org.excellence.yunnanemploymentbackend.entity.Province;
 import org.excellence.yunnanemploymentbackend.entity.ReportedData;
 import org.excellence.yunnanemploymentbackend.repository.EnterpriseInfoRepository;
 import org.excellence.yunnanemploymentbackend.repository.EnterpriseRepository;
@@ -54,18 +55,20 @@ public class ProvinceService {
 
     /**
      * 获取所有待审核的企业上报数据
-     * @return 待审核的企业上报数据的列表
+     *
      * @param provinceUserId 省的userId(方便多省扩展)
+     * @return 待审核的企业上报数据的列表
      */
     public List<ReportedData> getAllReportedDataAwaitingReview(String provinceUserId) {
         return provinceRepository.findById(provinceUserId)
                 .map(province -> province.getDataAwaitingReview().stream()
-                .map(reportedDataId -> reportedDataRepository.findById(reportedDataId).orElseGet(ReportedData::new))
-                .collect(Collectors.toList())).orElseGet(ArrayList::new);
+                        .map(reportedDataId -> reportedDataRepository.findById(reportedDataId).orElseGet(ReportedData::new))
+                        .collect(Collectors.toList())).orElseGet(ArrayList::new);
     }
 
     /**
      * 省审核通过上报的数据
+     *
      * @param reportedDataId 上报数据的Id
      * @return 操作是否成功
      */
@@ -81,7 +84,8 @@ public class ProvinceService {
                 reportedDataRepository.findById(reportedDataId).ifPresentOrElse(reportedData -> {
                     reportedData.setStatus(1); // 1代表审核通过
                     reportedDataRepository.save(reportedData);
-                }, () -> {});
+                }, () -> {
+                });
                 return true;
             } else {
                 return false;
@@ -93,6 +97,7 @@ public class ProvinceService {
 
     /**
      * 省拒绝通过企业上报的数据
+     *
      * @param provinceUserId 省的UserId
      * @param reportedDataId 上报数据的Id
      * @return 操作是否成功
@@ -108,7 +113,8 @@ public class ProvinceService {
 
     /**
      * 审核通过企业的备案信息
-     * @param provinceUserId 省的UserId
+     *
+     * @param provinceUserId   省的UserId
      * @param enterpriseInfoId 备案信息的Id
      * @return 操作是否成功
      */
@@ -123,7 +129,8 @@ public class ProvinceService {
 
     /**
      * 拒绝通过企业的备案信息
-     * @param provinceUserId 省的UserId
+     *
+     * @param provinceUserId   省的UserId
      * @param enterpriseInfoId 备案信息的Id
      * @return 操作是否成功
      */
@@ -138,6 +145,7 @@ public class ProvinceService {
 
     /**
      * 修改企业的上报数据
+     *
      * @param reportedData 修改之后的上报数据
      * @return 操作是否成功
      */
@@ -148,12 +156,56 @@ public class ProvinceService {
 
     /**
      * 发布通知
+     *
      * @param provinceUserId 省用户的UserId
-     * @param notice 具体通知内容
+     * @param notice         具体通知内容
      * @return 操作是否成功
      */
     public Boolean releaseNotice(String provinceUserId, Notice notice) {
         // TODO: 发布通知
         return true;
+    }
+
+    public List<EnterpriseInfo> searchEnterprises(String city, String keyword) {
+    }
+
+    public void reviewAndSummarizeReportedData() {
+    }
+
+    public void deleteReportedData(String enterpriseUserId, String reportedDataId) {
+    }
+
+    public void returnReportedData(String enterpriseUserId, String reportedDataId) {
+    }
+
+    public List<ReportedData> viewSummary() {
+    }
+
+    public void exportData(String period) {
+    }
+
+    public List<Province> queryProvincesByCondition(String condition) {
+    }
+
+    public void performMultidimensionalAnalysis() {
+    }
+
+    public void performChartAnalysis() {
+    }
+
+    public void publishNotice(Notice notice) {
+    }
+
+    public void deleteNotice(String noticeId) {
+    }
+
+    public void configureSystem(int timeLimit) {
+    }
+
+    public void manageUser(String userId) {
+    }
+
+    public void monitorSystem() {
+
     }
 }
