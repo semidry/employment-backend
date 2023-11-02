@@ -1,8 +1,7 @@
 package org.excellence.yunnanemploymentbackend.service;
 
-import org.excellence.yunnanemploymentbackend.entity.Enterprise;
 import org.excellence.yunnanemploymentbackend.entity.EnterpriseInfo;
-import org.excellence.yunnanemploymentbackend.entity.Province;
+import org.excellence.yunnanemploymentbackend.entity.Notice;
 import org.excellence.yunnanemploymentbackend.entity.ReportedData;
 import org.excellence.yunnanemploymentbackend.repository.EnterpriseInfoRepository;
 import org.excellence.yunnanemploymentbackend.repository.EnterpriseRepository;
@@ -13,8 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -80,9 +77,9 @@ public class ProvinceService {
                 final var province = wrappedProvince.get();
                 province.getDataAwaitingReview().removeIf(integer -> integer.equals(reportedDataId));
                 provinceRepository.save(province);
-                // 数据表中添加"已审核"标志
+                // 数据表中添加"已审核通过"标志
                 reportedDataRepository.findById(reportedDataId).ifPresentOrElse(reportedData -> {
-                    reportedData.setIsApproved(true);
+                    reportedData.setStatus(1); // 1代表审核通过
                     reportedDataRepository.save(reportedData);
                 }, () -> {});
                 return true;
@@ -92,5 +89,71 @@ public class ProvinceService {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    /**
+     * 省拒绝通过企业上报的数据
+     * @param provinceUserId 省的UserId
+     * @param reportedDataId 上报数据的Id
+     * @return 操作是否成功
+     */
+    public Boolean rejectReportedData(String provinceUserId, Integer reportedDataId) {
+        try {
+            // TODO: 省拒绝企业上报的数据
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * 审核通过企业的备案信息
+     * @param provinceUserId 省的UserId
+     * @param enterpriseInfoId 备案信息的Id
+     * @return 操作是否成功
+     */
+    public Boolean approveEnterpriseInfo(String provinceUserId, Integer enterpriseInfoId) {
+        try {
+            // TODO: 审核通过企业的备案信息
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * 拒绝通过企业的备案信息
+     * @param provinceUserId 省的UserId
+     * @param enterpriseInfoId 备案信息的Id
+     * @return 操作是否成功
+     */
+    public Boolean rejectEnterpriseInfo(String provinceUserId, Integer enterpriseInfoId) {
+        try {
+            // TODO: 拒绝通过企业的备案信息
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * 修改企业的上报数据
+     * @param reportedData 修改之后的上报数据
+     * @return 操作是否成功
+     */
+    public Boolean modifyReportedData(ReportedData reportedData) {
+        // TODO: 修改企业的上报数据
+        return true;
+    }
+
+    /**
+     * 发布通知
+     * @param provinceUserId 省用户的UserId
+     * @param notice 具体通知内容
+     * @return 操作是否成功
+     */
+    public Boolean releaseNotice(String provinceUserId, Notice notice) {
+        // TODO: 发布通知
+        return true;
     }
 }
