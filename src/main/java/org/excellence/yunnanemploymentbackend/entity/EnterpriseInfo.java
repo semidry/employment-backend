@@ -14,7 +14,7 @@ public class EnterpriseInfo {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer enterpriseInfoId;
     private String enterpriseUserId;
-    private Boolean isApproved;
+    private Integer status; // 0: 审核中; 1: 审核通过; 2: 被拒绝
     private String cityOfAffiliation; // 所属的市
     private String code; // 组织机构代码
     private String name; // 企业名称

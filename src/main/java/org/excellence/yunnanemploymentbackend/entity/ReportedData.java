@@ -14,6 +14,7 @@ public class ReportedData {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer reportedDataId;
     private String enterpriseUserId;
+    private Integer status; // 0: 审核中; 1: 审核通过; 2: 被拒绝
     private Integer employedNumDuringFilingPeriod;
     private Integer employedNumDuringSurveyPeriod;
     private String otherReasons;

@@ -13,8 +13,8 @@ import java.util.List;
 @Entity
 public class Province {
     @Id private String userId;
-    @ElementCollection private List<String> dataAwaitingReview;
+    @ElementCollection private List<Integer> dataAwaitingReview;
     @ElementCollection private List<String> cities;
-    @ElementCollection private List<String> releasedNotices;
+    @ElementCollection private List<Integer> releasedNotices;
     private Integer timeLimit;
 }

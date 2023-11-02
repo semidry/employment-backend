@@ -15,7 +15,7 @@ public class Enterprise {
     @Id private String userId;
     private String locatedCity;
     private String information;
-    @ElementCollection private List<String> reportedData;
-    @ElementCollection private List<String> unreadNotices;
+    @ElementCollection private List<Integer> reportedData;
+    @ElementCollection private List<Integer> unreadNotices;
     private Boolean isRegistered;
 }
